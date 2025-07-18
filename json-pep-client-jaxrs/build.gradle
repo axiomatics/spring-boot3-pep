@@ -1,0 +1,14 @@
+plugins {
+    id 'java-library'
+    id("io.freefair.lombok") version "6.6.2"
+}
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    api project(":json-pep-client")
+    api 'org.glassfish.jersey.core:jersey-client:3.1.5'
+    api 'org.glassfish.jersey.inject:jersey-hk2:3.1.5'
+    api 'org.glassfish.jersey.media:jersey-media-json-jackson:3.1.5'
+}

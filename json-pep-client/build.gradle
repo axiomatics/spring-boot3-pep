@@ -1,0 +1,12 @@
+plugins {
+    id 'java-library'
+    id("io.freefair.lombok") version "6.6.2"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    api project(':json-pep-models')
+}
