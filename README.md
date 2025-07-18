@@ -2,6 +2,25 @@
 An example of how to inject a Policy Enforcement Point (PEP) in a Spring Boot application.
 This example uses Spring interceptors. Security filter or Spring AOP may also be used.
 
+## Annotation-based interceptor
+
+The PEP is injected by an interceptor that checks for @AuthorizeWithAxiomaticsPDP annotation on a Controller class or method.
+This means you can add this annotations when you would like to call the PDP and have externalized authorization via Axiomatics PDP:
+```java
+@RestController
+@RequestMapping("/hello")
+@AuthorizeWithAxiomaticsPDP
+public class HelloController {
+
+    @GetMapping("/{name}")
+    public String sayHello(@PathVariable String name) {
+        //Before executing the method, authorization will be done by PDP, becuase of the @AuthorizeWithAxiomaticsPDP annotation on the controller class.
+        return "Hello " + name;
+    }
+}
+```
+
+
 ## /demo-app service
 A simple Spring Boot service. Invoke /hello/${name}`, and it returns 'Hello ${name}'.
 
